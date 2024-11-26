@@ -48,7 +48,7 @@ const Page = () => {
   );
 
   const [enums] = useState<Record<string, string[]>>({
-    Difficulty: ['None'],
+    Difficulty: ['None', 'Casual', 'Normal', 'Hard', 'Custom'],
     DeathPenalty: ['None', 'Item', 'ItemAndEquipment', 'All'],
     AllowConnectPlatform: ['Steam', 'Xbox'],
     LogFormatType: ['Text', 'Json'],
@@ -148,21 +148,6 @@ const Page = () => {
       key: 'value',
       title: '默认值',
       dataIndex: 'value',
-    },
-    {
-      key: 'min',
-      title: '最小值',
-      dataIndex: 'min',
-    },
-    {
-      key: 'max',
-      title: '最大值',
-      dataIndex: 'max',
-    },
-    {
-      key: 'step',
-      title: '步长',
-      dataIndex: 'step',
     },
   ];
 
