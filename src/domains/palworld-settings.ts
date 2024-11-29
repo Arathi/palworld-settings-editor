@@ -8,6 +8,10 @@ type float = number;
 // #region Enums
 export enum Difficulty {
   None = 'None',
+  Casual = 'Casual',
+  Normal = 'Normal',
+  Hard = 'Hard',
+  Custom = 'Custom',
 }
 export enum DeathPenalty {
   None = 'None',
@@ -183,4 +187,4 @@ export const DefaultOptionSettings: OptionSettings = {
 };
 // #endregion
 
-// generated at 2024-11-25T15:29:46.947Z
+// generated at 2024-11-29T08:26:14.932Z

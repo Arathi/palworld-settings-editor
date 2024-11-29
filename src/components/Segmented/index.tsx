@@ -37,6 +37,9 @@ function Segmented<VT extends string | number = string | number>(
   return (
     <>
       <Flex className="pwc-segmented" align="center">
+        <Flex style={{ width: 48 }}>
+          <div />
+        </Flex>
         <Button
           type="text"
           icon={<LeftOutlined />}

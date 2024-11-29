@@ -1,4 +1,4 @@
-import { Flex } from 'antd';
+import { Slider as AntDesignSlider, Flex } from 'antd';
 
 type Props = {
   min?: number;
@@ -11,8 +11,16 @@ const Slider: React.FC<Props> = props => {
   const { min = 0, max = 100, step = 1, value = 0 } = props;
   return (
     <Flex>
-      <span>{value}</span>
-      <input type="range" min={min} max={max} step={step} value={value} />
+      <Flex justify="start" align="center" style={{ width: 48 }}>
+        {value}
+      </Flex>
+      <AntDesignSlider
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        style={{ flex: 1 }}
+      />
     </Flex>
   );
 };

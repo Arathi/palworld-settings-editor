@@ -1,9 +1,9 @@
-import { Button, Flex, type FlexProps } from 'antd';
+import { Flex, type FlexProps } from 'antd';
 import { type CSSProperties, useMemo, useState } from 'react';
 
 type Props = Omit<FlexProps, 'children'> & {
-  offText?: string;
-  onText?: string;
+  offText?: React.ReactNode;
+  onText?: React.ReactNode;
 };
 
 const Switch: React.FC<Props> = props => {
@@ -37,6 +37,9 @@ const Switch: React.FC<Props> = props => {
       gap={4}
       style={{ paddingLeft: 12, paddingRight: 12 }}
     >
+      <Flex style={{ width: 48 }}>
+        <div />
+      </Flex>
       <Flex
         flex={1}
         justify="center"
