@@ -1,0 +1,33 @@
+.pwc-switch {
+  @color-inactive-background: unset;
+  @color-inactive-label: #8E9395;
+  @color-inactive-underline: #8E9395;
+
+  @color-active-background: #0E6996;
+  @color-active-label: white;
+  @color-active-underline: #00C4FF;
+
+  .pwc-switch-button-inactive {
+    .pwc-switch-label {
+      background-color: @color-inactive-background;
+      color: @color-inactive-label;
+      user-select: none;
+    }
+    .pwc-switch-underline {
+      height: 2px;
+      background-color: @color-inactive-underline;
+    }
+  }
+
+  .pwc-switch-button-active {
+    .pwc-switch-label {
+      background-color: @color-active-background;
+      color: @color-active-label;
+      user-select: none;
+    }
+    .pwc-switch-underline {
+      height: 2px;
+      background-color: @color-active-underline;
+    }
+  }
+}

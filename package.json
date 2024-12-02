@@ -1,6 +1,6 @@
 {
   "name": "palworld-settings-editor",
-  "version": "0.1.0",
+  "version": "0.24.1202-alpha",
   "scripts": {
     "reset": "npx rimraf node_modules ./**/node_modules",
     "dev": "modern dev",
@@ -13,7 +13,7 @@
     "upgrade": "modern upgrade"
   },
   "engines": {
-    "node": ">=16.18.1"
+    "node": ">=18"
   },
   "lint-staged": {
     "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
@@ -24,21 +24,26 @@
     "pre-commit": "npx lint-staged"
   },
   "dependencies": {
-    "@modern-js/runtime": "2.63.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@ant-design/icons": "^5.5.2",
+    "@modern-js/runtime": "^2.63.0",
+    "@monaco-editor/react": "^4.6.0",
+    "antd": "^5.22.2",
+    "react": "~18.3.1",
+    "react-dom": "~18.3.1",
+    "valtio": "^2.1.2"
   },
   "devDependencies": {
-    "@modern-js/app-tools": "2.63.0",
-    "@modern-js/tsconfig": "2.63.0",
-    "@biomejs/biome": "1.8.3",
-    "typescript": "~5.0.4",
-    "@types/jest": "~29.2.4",
-    "@types/node": "~18.11.9",
-    "@types/react": "^18.3.11",
+    "@biomejs/biome": "^1.9.4",
+    "@modern-js/app-tools": "^2.63.0",
+    "@modern-js/tsconfig": "^2.63.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^18.19.67",
+    "@types/react": "~18.3.12",
     "@types/react-dom": "~18.3.1",
-    "lint-staged": "~13.1.0",
+    "less": "^4.2.1",
+    "lint-staged": "^15.2.10",
+    "rimraf": "^6.0.1",
     "simple-git-hooks": "^2.11.1",
-    "rimraf": "^6.0.1"
+    "typescript": "^5.7.2"
   }
 }

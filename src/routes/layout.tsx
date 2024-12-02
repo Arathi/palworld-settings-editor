@@ -1,9 +1,25 @@
 import { Outlet } from '@modern-js/runtime/router';
+import { ConfigProvider, Flex } from 'antd';
 
-export default function Layout() {
+import './index.less';
+
+export default function RootLayout() {
   return (
-    <div>
-      <Outlet />
-    </div>
+    <ConfigProvider
+      theme={{
+        components: {
+          Divider: {
+            verticalMarginInline: 0,
+          },
+          Form: {
+            itemMarginBottom: 4,
+          },
+        },
+      }}
+    >
+      <Flex className="root-layout" vertical>
+        <Outlet />
+      </Flex>
+    </ConfigProvider>
   );
 }
