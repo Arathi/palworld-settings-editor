@@ -67,14 +67,24 @@ function Segmented<V = ValueType>({
   return (
     <Flex className="pwc-segmented">
       <div style={{ width: span }} />
-      <Button type="text" icon={<LeftOutlined />} onClick={onPreviousClick} />
+      <Button
+        type="text"
+        icon={<LeftOutlined />}
+        onClick={onPreviousClick}
+        style={{ color: 'white', marginLeft: -12 }}
+      />
       <Flex justify="center" flex={1} vertical>
         <Flex justify="center" align="center">
           {label}
         </Flex>
         <Flex gap={3}>{blocks}</Flex>
       </Flex>
-      <Button type="text" icon={<RightOutlined />} onClick={onNextClick} />
+      <Button
+        type="text"
+        icon={<RightOutlined />}
+        onClick={onNextClick}
+        style={{ color: 'white', marginRight: -12 }}
+      />
     </Flex>
   );
 }

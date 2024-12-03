@@ -58,7 +58,7 @@ const Page = () => {
             className="pwc-form-item"
             label={
               <span style={{ color: 'white', fontWeight: 'bold' }}>
-                测试单选
+                测试滑块
               </span>
             }
           >
