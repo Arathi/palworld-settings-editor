@@ -4,10 +4,10 @@ type int = number;
 
 // #region Enums
 export enum Difficulty {
-  None = 'None',
   Casual = 'Casual',
   Normal = 'Normal',
   Hard = 'Hard',
+  None = 'None',
 }
 export enum DeathPenalty {
   None = 'None',

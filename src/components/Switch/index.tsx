@@ -3,8 +3,8 @@ import './index.less';
 import type { CSSProperties } from 'react';
 
 export type SwitchProps = {
-  value: boolean;
-  onChange: (value: boolean) => void;
+  value?: boolean;
+  onChange?: (value: boolean) => void;
   span?: number;
 } & SwitchOptions;
 

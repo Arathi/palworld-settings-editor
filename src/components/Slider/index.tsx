@@ -9,13 +9,13 @@ export type SliderOptions = {
 };
 
 export type SliderProps = {
-  value: number;
-  onChange: (value: number) => void;
+  value?: number;
+  onChange?: (value: number) => void;
   span?: number;
 } & SliderOptions;
 
 const Slider: React.FC<SliderProps> = ({
-  value,
+  value = 0,
   onChange,
   span = 64,
   min,
@@ -34,7 +34,7 @@ const Slider: React.FC<SliderProps> = ({
   return (
     <Flex className="pwc-slider" align="center" gap={8}>
       <Flex className="pwc-slider-value" style={{ width: span }}>
-        {value}
+        {value.toLocaleString()}
       </Flex>
       <input
         className="pwc-slider-range"
@@ -48,7 +48,9 @@ const Slider: React.FC<SliderProps> = ({
           const value = e.currentTarget.value;
           console.info('更新为', value);
           const numeric = Number.parseFloat(value);
-          onChange(numeric);
+          if (onChange !== undefined && !Number.isNaN(numeric)) {
+            onChange(numeric);
+          }
         }}
         style={{
           backgroundSize,

@@ -1,6 +1,6 @@
 {
   "name": "palworld-settings-editor",
-  "version": "0.24.1202-alpha+1",
+  "version": "0.24.1202-alpha+2",
   "scripts": {
     "reset": "npx rimraf node_modules ./**/node_modules",
     "dev": "modern dev",

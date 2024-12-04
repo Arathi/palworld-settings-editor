@@ -1,0 +1,41 @@
+@color-active: #00BCFF;
+@color-inactive: #8E9395;
+
+.pwc-segmented {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  .pwc-segmented-button {
+    color: white;
+  }
+
+  .pwc-segmented-middle {
+    flex: 1;
+
+    .pwc-segmented-label {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+
+    .pwc-segmented-blocks {
+      display: flex;
+      flex-direction: row;
+      gap: 3px;
+
+      .pwc-segmented-block {
+        flex: 1;
+        height: 2px;
+        background-color: @color-inactive;
+
+        &.active {
+          background-color: @color-active;
+        }
+      }
+    }
+  }
+}

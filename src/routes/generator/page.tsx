@@ -44,9 +44,8 @@ type Property = {
 
 const Page = () => {
   const [configure] = useState<string>(defaults);
-  const [typeAliases, setTypeAliases] = useState<Record<string, string>>({});
   const [enums, setEnums] = useState<Record<string, string[]>>({
-    Difficulty: ['None', 'Casual', 'Normal', 'Hard'],
+    Difficulty: ['Casual', 'Normal', 'Hard', 'None'],
     DeathPenalty: ['None', 'Item', 'ItemAndEquipment', 'All'],
     AllowConnectPlatform: ['Steam', 'Xbox'],
     LogFormatType: ['Text', 'Json'],
@@ -141,7 +140,6 @@ const Page = () => {
     });
   }
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const enumList = useMemo(() => {
     const list: React.ReactNode[] = [];
     const names = Object.keys(enums);
@@ -153,7 +151,7 @@ const Page = () => {
           color={TagColors[index % TagColors.length]}
           values={enums[name]}
           onChange={values => {
-            updateEnum(name, values);
+            // updateEnum(name, values);
           }}
         />,
       );
@@ -230,34 +228,44 @@ export const DefaultOptionSettings: OptionSettings = {
       <Helmet>
         <title>配置文件数据结构生成器</title>
       </Helmet>
-      <Flex className="generator-page" vertical>
-        <Flex>
-          <Input.TextArea value={configure} disabled />
-        </Flex>
-        <Flex flex={1} gap={8}>
-          <Flex vertical flex={1}>
-            <Flex vertical gap={8}>
-              {enumList}
-            </Flex>
-            <Divider />
-            <Table
-              columns={columns}
-              dataSource={properties}
-              size="small"
-              pagination={false}
-              style={{ flex: 1 }}
-            />
+      <Flex
+        justify="center"
+        className="generator-page"
+        style={{ height: '100vh' }}
+      >
+        <Flex
+          vertical
+          gap={8}
+          style={{ width: 1280, height: '100%', overflowY: 'scroll' }}
+        >
+          <Flex>
+            <Input.TextArea value={configure} disabled />
           </Flex>
-          <Flex flex={1} vertical gap={8} style={{ height: '100%' }}>
-            <Flex justify="end">
-              <Button onClick={onCopyClick}>复制</Button>
-            </Flex>
-            <Flex flex={1}>
-              <MonacoEditor
-                defaultLanguage="typescript"
-                defaultValue={schema}
-                theme="vs-dark"
+          <Flex flex={1} gap={8}>
+            <Flex vertical flex={1}>
+              <Flex vertical gap={8}>
+                {enumList}
+              </Flex>
+              <Divider />
+              <Table
+                columns={columns}
+                dataSource={properties}
+                size="small"
+                pagination={false}
+                style={{ flex: 1 }}
               />
+            </Flex>
+            <Flex flex={1} vertical gap={8} style={{ height: '100%' }}>
+              <Flex justify="end">
+                <Button onClick={onCopyClick}>复制</Button>
+              </Flex>
+              <Flex flex={1}>
+                <MonacoEditor
+                  defaultLanguage="typescript"
+                  defaultValue={schema}
+                  theme="vs-dark"
+                />
+              </Flex>
             </Flex>
           </Flex>
         </Flex>

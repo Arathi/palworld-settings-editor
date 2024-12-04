@@ -1,5 +1,90 @@
-.pwc-form-item {
-  background-color: rgba(34, 34, 34, 0.75);
-  padding: 0 32px;
-  color: white;
+.editor-page {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: blur(8px);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .scanlines {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.25) 50%,
+      rgba(0, 0, 0, 0.5) 100%,
+    );
+    background-size: 100% 4px;
+  }
+
+  .frontground {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .world-setting {
+      display: flex;
+      flex-direction: column;
+
+      width: calc(1280px - 2 * 8px);
+      height: calc(100vh - 2 * 8px);
+      // background-color: rgba(0, 255, 0, 0.125);
+      padding: 16px 0;
+
+      .pwc-form-item {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 0 32px;
+
+        .ant-form-item-label > label {
+          color: white;
+          font-weight: bold;
+        }
+      }
+
+      .difficulty-selector {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        margin-bottom: 16px;
+      }
+
+      .difficulty-settings {
+        flex: 1;
+        background-color: rgba(255, 0, 0, 0.125);
+        padding: 0 16px;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        background-color: gray;
+        margin: 16px 0;
+      }
+    }
+
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 }
