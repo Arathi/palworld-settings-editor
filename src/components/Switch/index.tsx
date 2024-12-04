@@ -1,6 +1,5 @@
 import { Flex } from 'antd';
 import './index.less';
-import type { CSSProperties } from 'react';
 
 export type SwitchProps = {
   value?: boolean;
@@ -14,9 +13,9 @@ export interface SwitchOptions {
 }
 
 const Switch: React.FC<SwitchProps> = ({
-  value,
+  value = false,
   onChange,
-  span = 64,
+  span = 48,
   off = 'OFF',
   on = 'ON',
 }) => {
@@ -26,9 +25,21 @@ const Switch: React.FC<SwitchProps> = ({
       <SwitchButton
         label={off}
         active={!value}
-        onClick={() => onChange(false)}
+        onClick={() => {
+          if (onChange !== undefined) {
+            onChange(false);
+          }
+        }}
       />
-      <SwitchButton label={on} active={value} onClick={() => onChange(true)} />
+      <SwitchButton
+        label={on}
+        active={value}
+        onClick={() => {
+          if (onChange !== undefined) {
+            onChange(true);
+          }
+        }}
+      />
     </Flex>
   );
 };
@@ -37,8 +48,7 @@ const SwitchButton: React.FC<{
   label: string;
   active: boolean;
   onClick: () => void;
-  style?: CSSProperties;
-}> = ({ label, active, onClick, style = {} }) => {
+}> = ({ label, active, onClick }) => {
   const className = active
     ? 'pwc-switch-button-active'
     : 'pwc-switch-button-inactive';

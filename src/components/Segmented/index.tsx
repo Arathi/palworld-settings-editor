@@ -22,7 +22,7 @@ function Segmented<V = ValueType>({
   value,
   onChange,
   options = [],
-  span = 64,
+  span = 48,
 }: SegmentedProps<V>) {
   const label = useMemo(() => {
     const option = options.find(option => option.value === value);
@@ -68,42 +68,33 @@ function Segmented<V = ValueType>({
     }
   }
 
-  // return (
-  //   <Flex className="pwc-segmented">
-  //     <div style={{ width: span }} />
-  //     <Button
-  //       type="text"
-  //       icon={<LeftOutlined />}
-  //       onClick={onPreviousClick}
-  //       style={{ color: 'white' }}
-  //     />
-  //     <Flex justify="center" flex={1} vertical>
-  //       <Flex justify="center" align="center">
-  //         {label}
-  //       </Flex>
-  //       <Flex gap={3}>{blocks}</Flex>
-  //     </Flex>
-  //     <Button
-  //       type="text"
-  //       icon={<RightOutlined />}
-  //       onClick={onNextClick}
-  //       style={{ color: 'white' }}
-  //     />
-  //   </Flex>
-  // );
-
   return (
     <div className="pwc-segmented">
       <div style={{ width: span }} />
-      <LeftOutlined
-        className="pwc-segmented-button"
+      <Button
+        type="text"
+        icon={
+          <LeftOutlined
+            className="pwc-segmented-button"
+            style={{ fontSize: 20 }}
+          />
+        }
         onClick={onPreviousClick}
       />
       <div className="pwc-segmented-middle">
         <div className="pwc-segmented-label">{label}</div>
         <div className="pwc-segmented-blocks">{blocks}</div>
       </div>
-      <RightOutlined className="pwc-segmented-button" onClick={onNextClick} />
+      <Button
+        type="text"
+        icon={
+          <RightOutlined
+            className="pwc-segmented-button"
+            style={{ fontSize: 20 }}
+          />
+        }
+        onClick={onNextClick}
+      />
     </div>
   );
 }

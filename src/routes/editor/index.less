@@ -48,15 +48,17 @@
     .world-setting {
       display: flex;
       flex-direction: column;
+      justify-content: start;
+      align-items: center;
 
       width: calc(1280px - 2 * 8px);
       height: calc(100vh - 2 * 8px);
-      // background-color: rgba(0, 255, 0, 0.125);
-      padding: 16px 0;
+      padding: 0 0 0 0;
 
       .pwc-form-item {
         background-color: rgba(0, 0, 0, 0.5);
-        padding: 0 32px;
+        padding: 4px 32px;
+        width: 100%;
 
         .ant-form-item-label > label {
           color: white;
@@ -64,16 +66,35 @@
         }
       }
 
-      .difficulty-selector {
-        padding-top: 4px;
-        padding-bottom: 4px;
-        margin-bottom: 16px;
+      .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        width: 100%;
+        height: 64px;
+
+        .difficulty-selector {
+          padding: 8px 32px;
+        }
       }
 
       .difficulty-settings {
+        width: 1260px;
         flex: 1;
-        background-color: rgba(255, 0, 0, 0.125);
-        padding: 0 16px;
+        padding-right: 8px;
+
+        &::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: unset;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: white;
+        }
       }
 
       .divider {
@@ -81,6 +102,19 @@
         height: 1px;
         background-color: gray;
         margin: 16px 0;
+      }
+
+      .footer {
+        display: flex;
+        width: 100%;
+        height: 48px;
+        margin-top: 15px;
+
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border-top: solid 1px white;
       }
     }
 

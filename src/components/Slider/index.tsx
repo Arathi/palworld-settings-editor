@@ -17,7 +17,7 @@ export type SliderProps = {
 const Slider: React.FC<SliderProps> = ({
   value = 0,
   onChange,
-  span = 64,
+  span = 48,
   min,
   max,
   step,
@@ -46,7 +46,6 @@ const Slider: React.FC<SliderProps> = ({
         ref={rangeRef}
         onChange={e => {
           const value = e.currentTarget.value;
-          console.info('更新为', value);
           const numeric = Number.parseFloat(value);
           if (onChange !== undefined && !Number.isNaN(numeric)) {
             onChange(numeric);
