@@ -157,7 +157,7 @@ export const DifficultyFormItems: FormItemProps[] = [
   },
   {
     name: 'PlayerDamageRateAttack',
-    label: '帕鲁攻击伤害倍率',
+    label: '玩家攻击伤害倍率',
     type: 'slider',
     options: {
       min: 0.1,
@@ -167,7 +167,7 @@ export const DifficultyFormItems: FormItemProps[] = [
   },
   {
     name: 'PlayerDamageRateDefense',
-    label: '帕鲁承受伤害倍率',
+    label: '玩家承受伤害倍率',
     type: 'slider',
     options: {
       min: 0.1,
@@ -177,7 +177,7 @@ export const DifficultyFormItems: FormItemProps[] = [
   },
   {
     name: 'PlayerStomachDecreaceRate',
-    label: '帕鲁饱食度降低倍率',
+    label: '玩家饱食度降低倍率',
     type: 'slider',
     options: {
       min: 0.1,
@@ -187,7 +187,7 @@ export const DifficultyFormItems: FormItemProps[] = [
   },
   {
     name: 'PlayerStaminaDecreaceRate',
-    label: '帕鲁耐力降低倍率',
+    label: '玩家耐力降低倍率',
     type: 'slider',
     options: {
       min: 0.1,
@@ -197,7 +197,7 @@ export const DifficultyFormItems: FormItemProps[] = [
   },
   {
     name: 'PlayerAutoHPRegeneRate',
-    label: '帕鲁生命值自然回复倍率',
+    label: '玩家生命值自然回复倍率',
     type: 'slider',
     options: {
       min: 0.1,
@@ -207,7 +207,7 @@ export const DifficultyFormItems: FormItemProps[] = [
   },
   {
     name: 'PlayerAutoHpRegeneRateInSleep',
-    label: '帕鲁睡眠时生命值回复倍率',
+    label: '玩家睡眠时生命值回复倍率',
     type: 'slider',
     options: {
       min: 0.1,
@@ -242,7 +242,7 @@ export const DifficultyFormItems: FormItemProps[] = [
     options: {
       min: 0,
       max: 5000,
-      step: 10,
+      step: 1,
     },
   },
   {
@@ -283,6 +283,16 @@ export const DifficultyFormItems: FormItemProps[] = [
       min: 0.5,
       max: 3,
       step: 0.1,
+    },
+  },
+  {
+    name: 'SupplyDropSpan',
+    label: '陨石·补给物资的空投间隔（分）',
+    type: 'slider',
+    options: {
+      min: 1,
+      max: 999,
+      step: 1,
     },
   },
   {
@@ -357,16 +367,6 @@ export const DifficultyFormItems: FormItemProps[] = [
       step: 1,
     },
   },
-  {
-    name: 'SupplyDropSpan',
-    label: '陨石/空投时间间隔',
-    type: 'slider',
-    options: {
-      min: 60,
-      max: 360,
-      step: 1,
-    },
-  },
 ];
 
 export const ServerFormItems = [
@@ -429,27 +429,27 @@ export const ServerFormItems = [
     type: 'segmented',
     options: [
       {
-        value: 30.0,
+        value: 30,
         label: '30秒',
       },
       {
-        value: 60.0,
+        value: 60,
         label: '1分钟',
       },
       {
-        value: 300.0,
+        value: 300,
         label: '5分钟',
       },
       {
-        value: 600.0,
+        value: 600,
         label: '10分钟',
       },
       {
-        value: 900.0,
+        value: 900,
         label: '15分钟',
       },
       {
-        value: 1800.0,
+        value: 1800,
         label: '30分钟',
       },
     ],

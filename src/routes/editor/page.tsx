@@ -2,13 +2,14 @@ import Button from '@/components/Button';
 import Segmented, { type SegmentedOptions } from '@/components/Segmented';
 import Slider from '@/components/Slider';
 import Switch from '@/components/Switch';
+import { Casual, Hard, Normal } from '@/domains/difficulties';
 import { DifficultyFormItem, DifficultyFormItems } from '@/domains/form-item';
 import type OptionSettings from '@/domains/option-settings';
 import { DefaultOptionSettings, Difficulty } from '@/domains/option-settings';
 import { useWindowSize } from '@/hooks/window-size';
 import { Helmet } from '@modern-js/runtime/head';
 import { Form } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import './index.less';
 
@@ -18,6 +19,7 @@ const Page = () => {
   const [optionSettings, setOptionSettings] = useState<OptionSettings>(
     DefaultOptionSettings,
   );
+  const [form] = Form.useForm<OptionSettings>();
 
   const backgroundSrc =
     'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1623730/library_hero.jpg';
@@ -32,6 +34,7 @@ const Page = () => {
     setOptionSettings({
       ...optionSettings,
       ...changedValues,
+      // Difficulty: Difficulty.None,
     });
   }
 
@@ -63,6 +66,27 @@ const Page = () => {
     );
   });
 
+  useEffect(() => {
+    console.info('难度发生变化：', optionSettings.Difficulty);
+    switch (optionSettings.Difficulty) {
+      case Difficulty.Casual: {
+        console.info('更新为休闲难度：', Casual);
+        form.setFieldsValue(Casual);
+        break;
+      }
+      case Difficulty.Normal: {
+        console.info('更新为普通难度：', Normal);
+        form.setFieldsValue(Normal);
+        break;
+      }
+      case Difficulty.Hard: {
+        console.info('更新为困难难度：', Hard);
+        form.setFieldsValue(Hard);
+        break;
+      }
+    }
+  }, [optionSettings.Difficulty, form]);
+
   return (
     <>
       <Helmet>
@@ -76,6 +100,7 @@ const Page = () => {
         <div className="frontground">
           <Form<OptionSettings>
             className="world-setting"
+            form={form}
             labelCol={{ span: 12 }}
             labelAlign="left"
             colon={false}
