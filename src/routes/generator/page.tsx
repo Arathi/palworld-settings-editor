@@ -1,4 +1,9 @@
 import Tags from '@/components/Tags';
+import {
+  DifficultyFormItem,
+  DifficultyFormItems,
+  FormItems,
+} from '@/domains/form-item';
 import { Helmet } from '@modern-js/runtime/head';
 import MonacoEditor from '@monaco-editor/react';
 import {
@@ -40,6 +45,7 @@ type Property = {
   name: string;
   type: string;
   value: string;
+  label?: string;
 };
 
 const Page = () => {
@@ -68,7 +74,7 @@ const Page = () => {
         if (
           type === 'float' ||
           type === 'int' ||
-          type === 'bool' ||
+          type === 'boolean' ||
           type === 'string'
         ) {
           color = 'green';
@@ -87,6 +93,11 @@ const Page = () => {
       title: '默认值',
       dataIndex: 'value',
     },
+    {
+      key: 'label',
+      title: '说明',
+      dataIndex: 'label',
+    },
   ];
 
   const properties = useMemo(() => {
@@ -101,10 +112,13 @@ const Page = () => {
         for (const pair of pairs) {
           const [name, value] = pair.split('=');
           const type = parseType(name, value);
+          const item = FormItems.find(item => item.name === name);
+          const label = item?.label;
           list.push({
             name,
             type,
             value,
+            label,
           });
         }
       }
@@ -231,12 +245,12 @@ export const DefaultOptionSettings: OptionSettings = {
       <Flex
         justify="center"
         className="generator-page"
-        style={{ height: '100vh' }}
+        style={{ height: '100vh', overflowY: 'hidden' }}
       >
         <Flex
           vertical
           gap={8}
-          style={{ width: 1280, height: '100%', overflowY: 'scroll' }}
+          style={{ width: 1800, height: '100%', overflowY: 'scroll' }}
         >
           <Flex>
             <Input.TextArea value={configure} disabled />
@@ -255,7 +269,12 @@ export const DefaultOptionSettings: OptionSettings = {
                 style={{ flex: 1 }}
               />
             </Flex>
-            <Flex flex={1} vertical gap={8} style={{ height: '100%' }}>
+            <Flex
+              flex={1}
+              vertical
+              gap={8}
+              style={{ display: 'none', height: '100%' }}
+            >
               <Flex justify="end">
                 <Button onClick={onCopyClick}>复制</Button>
               </Flex>

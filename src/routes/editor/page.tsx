@@ -1,8 +1,9 @@
 import Button from '@/components/Button';
-import Segmented from '@/components/Segmented';
+import Segmented, { type SegmentedOptions } from '@/components/Segmented';
 import Slider from '@/components/Slider';
 import Switch from '@/components/Switch';
-import { DifficutyFormItems } from '@/domains/form-item';
+import { DifficultyFormItem, DifficultyFormItems } from '@/domains/form-item';
+import type OptionSettings from '@/domains/option-settings';
 import { DefaultOptionSettings, Difficulty } from '@/domains/option-settings';
 import { useWindowSize } from '@/hooks/window-size';
 import { Helmet } from '@modern-js/runtime/head';
@@ -13,8 +14,10 @@ import './index.less';
 
 const Page = () => {
   const windowSize = useWindowSize();
-  const [items] = useState(DifficutyFormItems);
-  const [optionSettings, setOptionSettings] = useState(DefaultOptionSettings);
+  const [items] = useState(DifficultyFormItems);
+  const [optionSettings, setOptionSettings] = useState<OptionSettings>(
+    DefaultOptionSettings,
+  );
 
   const backgroundSrc =
     'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1623730/library_hero.jpg';
@@ -22,8 +25,10 @@ const Page = () => {
   const headerHeight = 48;
   const footerHeight = 64;
 
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  function onOptionSettingsChange(changedValues: any, allValues: any) {
+  function onOptionSettingsChange(
+    changedValues: Partial<OptionSettings>,
+    allValues: OptionSettings,
+  ) {
     setOptionSettings({
       ...optionSettings,
       ...changedValues,
@@ -69,7 +74,7 @@ const Page = () => {
         </div>
         <div className="scanlines" />
         <div className="frontground">
-          <Form
+          <Form<OptionSettings>
             className="world-setting"
             labelCol={{ span: 12 }}
             labelAlign="left"
@@ -89,12 +94,7 @@ const Page = () => {
                 className="pwc-form-item difficulty-selector"
               >
                 <Segmented
-                  options={[
-                    { value: Difficulty.Casual, label: '休闲' },
-                    { value: Difficulty.Normal, label: '普通' },
-                    { value: Difficulty.Hard, label: '困难' },
-                    { value: Difficulty.None, label: '自定义' },
-                  ]}
+                  options={DifficultyFormItem.options as SegmentedOptions[]}
                 />
               </Form.Item>
             </div>
