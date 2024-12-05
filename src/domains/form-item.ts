@@ -762,8 +762,8 @@ export const OtherFormItems = [
 
 export const FormItems = [
   DifficultyFormItem,
+  ...ServerFormItems,
   ...DifficultyFormItems,
   ...OtherFormItems,
-  ...ServerFormItems,
 ];
 // #endregion
