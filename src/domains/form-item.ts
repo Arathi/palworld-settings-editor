@@ -66,37 +66,6 @@ export const DifficultyFormItems: FormItemProps[] = [
     },
   },
   {
-    name: 'AutoSaveSpan',
-    label: '自动保存间隔',
-    type: 'segmented',
-    options: [
-      {
-        value: 30.0,
-        label: '30秒',
-      },
-      {
-        value: 60.0,
-        label: '1分钟',
-      },
-      {
-        value: 300.0,
-        label: '5分钟',
-      },
-      {
-        value: 600.0,
-        label: '10分钟',
-      },
-      {
-        value: 900.0,
-        label: '15分钟',
-      },
-      {
-        value: 1800.0,
-        label: '30分钟',
-      },
-    ],
-  },
-  {
     name: 'ExpRate',
     label: '经验值倍率',
     type: 'slider',
@@ -402,6 +371,199 @@ export const DifficultyFormItems: FormItemProps[] = [
 
 export const ServerFormItems = [
   {
+    name: 'ServerName',
+    label: '服务器名称',
+    type: 'input',
+  },
+  {
+    name: 'ServerDescription',
+    label: '服务器描述',
+    type: 'input',
+  },
+  {
+    name: 'AdminPassword',
+    label: '管理员密码',
+    type: 'password',
+  },
+  {
+    name: 'ServerPassword',
+    label: '服务器密码',
+    type: 'password',
+  },
+  {
+    name: 'PublicIP',
+    label: '服务器地址',
+    type: 'input',
+  },
+  {
+    name: 'PublicPort',
+    label: '服务器端口',
+    type: 'number',
+    options: {
+      min: 1024,
+      max: 65535,
+    },
+  },
+  {
+    name: 'ServerPlayerMaxNum',
+    label: '服务器人数上限',
+    type: 'slider',
+    options: {
+      min: 2,
+      max: 32,
+      step: 1,
+    },
+  },
+  {
+    name: 'bIsUseBackupSaveData',
+    label: '是否开启自动备份',
+    type: 'switch',
+    options: {
+      off: '否',
+      on: '是',
+    },
+  },
+  {
+    name: 'AutoSaveSpan',
+    label: '自动保存间隔',
+    type: 'segmented',
+    options: [
+      {
+        value: 30.0,
+        label: '30秒',
+      },
+      {
+        value: 60.0,
+        label: '1分钟',
+      },
+      {
+        value: 300.0,
+        label: '5分钟',
+      },
+      {
+        value: 600.0,
+        label: '10分钟',
+      },
+      {
+        value: 900.0,
+        label: '15分钟',
+      },
+      {
+        value: 1800.0,
+        label: '30分钟',
+      },
+    ],
+  },
+  {
+    name: 'AllowConnectPlatform',
+    label: '游戏平台',
+    type: 'segmented',
+    options: [
+      {
+        value: AllowConnectPlatform.Steam,
+        label: 'Steam',
+      },
+      {
+        value: AllowConnectPlatform.Xbox,
+        label: 'Xbox',
+      },
+    ],
+  },
+  {
+    name: 'LogFormatType',
+    label: '日志格式',
+    type: 'segmented',
+    options: [
+      {
+        value: LogFormatType.Text,
+        label: '文本',
+      },
+      {
+        value: LogFormatType.Json,
+        label: 'JSON',
+      },
+    ],
+  },
+  {
+    name: 'RCONEnabled',
+    label: '是否启用 RCON',
+    type: 'switch',
+    options: {
+      off: '否',
+      on: '是',
+    },
+  },
+  {
+    name: 'RCONPort',
+    label: 'RCON 端口',
+    type: 'number',
+    options: {
+      min: 1024,
+      max: 65535,
+      step: 1,
+    },
+  },
+  {
+    name: 'Region',
+    label: '服务器区域',
+    type: 'input',
+  },
+  {
+    name: 'bUseAuth',
+    label: '是否启用正版认证',
+    type: 'switch',
+    options: {
+      off: '否',
+      on: '是',
+    },
+  },
+  {
+    name: 'BanListURL',
+    label: '黑名单',
+    type: 'input',
+  },
+  {
+    name: 'RESTAPIEnabled',
+    label: '是否启用 REST API',
+    type: 'switch',
+    options: {
+      off: '否',
+      on: '是',
+    },
+  },
+  {
+    name: 'RESTAPIPort',
+    label: 'REST API 端口',
+    type: 'number',
+    options: {
+      min: 1024,
+      max: 65535,
+      step: 1,
+    },
+  },
+  {
+    name: 'bShowPlayerList',
+    label: '是否显示玩家列表',
+    type: 'switch',
+    options: {
+      off: '否',
+      on: '是',
+    },
+  },
+  {
+    name: 'ChatPostLimitPerMinute',
+    label: '聊天频次限制（每分钟条数）',
+    type: 'slider',
+    options: {
+      min: 1,
+      max: 10,
+      step: 1,
+    },
+  },
+];
+
+export const OtherFormItems = [
+  {
     name: 'bEnablePlayerToPlayerDamage',
     label: '允许玩家相互攻击',
     type: 'switch',
@@ -596,171 +758,12 @@ export const ServerFormItems = [
       step: 1,
     },
   },
-  {
-    name: 'ServerPlayerMaxNum',
-    label: '服务器人数上限',
-    type: 'slider',
-    options: {
-      min: 2,
-      max: 32,
-      step: 1,
-    },
-  },
-  {
-    name: 'ServerName',
-    label: '服务器名称',
-    type: 'input',
-  },
-  {
-    name: 'ServerDescription',
-    label: '服务器描述',
-    type: 'input',
-  },
-  {
-    name: 'AdminPassword',
-    label: '管理员',
-    type: 'password',
-  },
-  {
-    name: 'ServerPassword',
-    label: '服务器密码',
-    type: 'password',
-  },
-  {
-    name: 'PublicPort',
-    label: '服务器端口',
-    type: 'number',
-    options: {
-      min: 1024,
-      max: 65535,
-      step: 1,
-    },
-  },
-  {
-    name: 'PublicIP',
-    label: '服务器地址',
-    type: 'input',
-  },
-  {
-    name: 'RCONEnabled',
-    label: '是否启用 RCON',
-    type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
-  },
-  {
-    name: 'RCONPort',
-    label: 'RCON 端口',
-    type: 'number',
-    options: {
-      min: 1024,
-      max: 65535,
-      step: 1,
-    },
-  },
-  {
-    name: 'Region',
-    label: '服务器区域',
-    type: 'input',
-  },
-  {
-    name: 'bUseAuth',
-    label: '是否启用正版认证',
-    type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
-  },
-  {
-    name: 'BanListURL',
-    label: '黑名单',
-    type: 'input',
-  },
-  {
-    name: 'RESTAPIEnabled',
-    label: '是否启用 REST API',
-    type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
-  },
-  {
-    name: 'RESTAPIPort',
-    label: 'REST API 端口',
-    type: 'number',
-    options: {
-      min: 1024,
-      max: 65535,
-      step: 1,
-    },
-  },
-  {
-    name: 'bShowPlayerList',
-    label: '是否显示玩家列表',
-    type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
-  },
-  {
-    name: 'ChatPostLimitPerMinute',
-    label: '聊天频次限制（每分钟条数）',
-    type: 'slider',
-    options: {
-      min: 1,
-      max: 10,
-      step: 1,
-    },
-  },
-  {
-    name: 'AllowConnectPlatform',
-    label: '游戏平台',
-    type: 'segmented',
-    options: [
-      {
-        value: AllowConnectPlatform.Steam,
-        label: 'Steam',
-      },
-      {
-        value: AllowConnectPlatform.Xbox,
-        label: 'Xbox',
-      },
-    ],
-  },
-  {
-    name: 'bIsUseBackupSaveData',
-    label: '是否开启自动备份',
-    type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
-  },
-  {
-    name: 'LogFormatType',
-    label: '日志格式',
-    type: 'segmented',
-    options: [
-      {
-        value: LogFormatType.Text,
-        label: '文本',
-      },
-      {
-        value: LogFormatType.Json,
-        label: 'JSON',
-      },
-    ],
-  },
 ];
 
 export const FormItems = [
   DifficultyFormItem,
   ...DifficultyFormItems,
+  ...OtherFormItems,
   ...ServerFormItems,
 ];
 // #endregion
