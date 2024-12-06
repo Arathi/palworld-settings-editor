@@ -3,7 +3,7 @@ import { Outlet } from '@modern-js/runtime/router';
 import { ConfigProvider, Flex } from 'antd';
 import { type CSSProperties, useMemo, useState } from 'react';
 
-import './index.less';
+import './layout.less';
 
 export default function RootLayout() {
   const [settings, setSettings] = useState<SettingsData>({

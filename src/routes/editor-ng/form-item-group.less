@@ -1,0 +1,23 @@
+.form-item-group {
+  margin-left: 12px;
+  // margin-right: 8px;
+  padding-right: 8px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: unset;
+
+    &:hover {
+      background-color: gray;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 8px;
+    background-color: white;
+    border-radius: 2px;
+  }
+}

@@ -4,13 +4,13 @@ import { DefaultOptionSettings } from './option-settings';
 import { DeathPenalty } from './option-settings';
 
 let Default: Partial<OptionSettings> = {};
-DifficultyFormItems.forEach((item, index) => {
+for (const item of DifficultyFormItems) {
   const { name } = item;
   Default = {
     ...Default,
     [name]: DefaultOptionSettings[name],
   };
-});
+}
 
 export const Casual: Partial<OptionSettings> = {
   ...Default,

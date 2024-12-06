@@ -1,0 +1,34 @@
+.pwc-switch {
+  --pwc-color-primary: white;
+  --pwc-color-inactive: gray;
+  --pwc-color-active: blue;
+  --pwc-color-hover: rgba(255, 255, 255, 0.125);
+  --pwc-switch-button-color: rgba(0, 0, 255, 0.5);
+  --pwc-switch-underline-width: 2px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  height: 32px;
+  padding: 0 8px;
+
+  .switch-button {
+    border: unset;
+    background-color: unset;
+    color: var(--pwc-color-inactive);
+    flex: 1;
+    border-bottom-style: solid;
+    border-bottom-width: var(--pwc-switch-underline-width);
+
+    &.active {
+      background-color: var(--pwc-switch-button-color);
+      border-bottom-color: var(--pwc-color-active);
+      color: var(--pwc-color-primary);
+    }
+
+    &.inactive {
+      background-color: unset;
+      border-bottom-color: var(--pwc-color-inactive);
+    }
+  }
+}

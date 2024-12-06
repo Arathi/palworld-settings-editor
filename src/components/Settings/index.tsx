@@ -19,7 +19,7 @@ const Settings: React.FC<{
       <Button
         type="primary"
         icon={<SettingOutlined />}
-        style={{ position: 'fixed', top: 8, right: 8, zIndex: 999 }}
+        style={{ position: 'fixed', bottom: 8, right: 8, zIndex: 999 }}
         onClick={() => {
           onChange({ showDrawer: true });
         }}

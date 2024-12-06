@@ -12,7 +12,14 @@ import {
 type FormItemProps<T = OptionSettings> = {
   name: keyof T;
   label: string;
-} & (SliderItemProps | SegmentedItemProps | SwitchItemProps);
+} & (
+  | SliderItemProps
+  | SegmentedItemProps
+  | SwitchItemProps
+  | InputTextProps
+  | InputPasswordProps
+  | InputNumberProps
+);
 
 interface SliderItemProps {
   type: 'slider';
@@ -29,7 +36,50 @@ interface SwitchItemProps {
   options: SwitchOptions;
 }
 
+interface InputTextProps {
+  type: 'input.text';
+  options: unknown;
+}
+
+interface InputPasswordProps {
+  type: 'input.password';
+  options: unknown;
+}
+
+interface InputNumberProps {
+  type: 'input.number';
+  options: unknown;
+}
+
 export default FormItemProps;
+
+const Options_01_50_01 = {
+  min: 0.1,
+  max: 5,
+  step: 0.1,
+};
+
+const Options_05_30_01 = {
+  min: 0.5,
+  max: 3,
+  step: 0.1,
+};
+
+const Options_Switch = {
+  off: '关',
+  on: '开',
+};
+
+const Options_NoYes = {
+  off: '否',
+  on: '是',
+};
+
+const Options_Port = {
+  min: 1024,
+  max: 65535,
+  step: 1,
+};
 
 // #region 表单项
 export const DifficultyFormItem: FormItemProps = {
@@ -49,21 +99,13 @@ export const DifficultyFormItems: FormItemProps[] = [
     name: 'DayTimeSpeedRate',
     label: '白天流逝速度',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'NightTimeSpeedRate',
     label: '夜晚流逝速度',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'ExpRate',
@@ -89,141 +131,85 @@ export const DifficultyFormItems: FormItemProps[] = [
     name: 'PalSpawnNumRate',
     label: '帕鲁刷新数量倍率',
     type: 'slider',
-    options: {
-      min: 0.5,
-      max: 3,
-      step: 0.1,
-    },
+    options: Options_05_30_01,
   },
   {
     name: 'PalDamageRateAttack',
     label: '帕鲁攻击伤害倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PalDamageRateDefense',
     label: '帕鲁承受伤害倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PalStomachDecreaceRate',
     label: '帕鲁饱食度降低倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PalStaminaDecreaceRate',
     label: '帕鲁耐力降低倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PalAutoHPRegeneRate',
     label: '帕鲁生命值自然回复倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PalAutoHpRegeneRateInSleep',
     label: '帕鲁睡眠时生命值回复倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PlayerDamageRateAttack',
     label: '玩家攻击伤害倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PlayerDamageRateDefense',
     label: '玩家承受伤害倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PlayerStomachDecreaceRate',
     label: '玩家饱食度降低倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PlayerStaminaDecreaceRate',
     label: '玩家耐力降低倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PlayerAutoHPRegeneRate',
     label: '玩家生命值自然回复倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'PlayerAutoHpRegeneRateInSleep',
     label: '玩家睡眠时生命值回复倍率',
     type: 'slider',
-    options: {
-      min: 0.1,
-      max: 5,
-      step: 0.1,
-    },
+    options: Options_01_50_01,
   },
   {
     name: 'BuildObjectDamageRate',
     label: '对建筑伤害倍率',
     type: 'slider',
-    options: {
-      min: 0.5,
-      max: 3,
-      step: 0.1,
-    },
+    options: Options_05_30_01,
   },
   {
     name: 'BuildObjectDeteriorationDamageRate',
@@ -249,41 +235,25 @@ export const DifficultyFormItems: FormItemProps[] = [
     name: 'CollectionDropRate',
     label: '道具采集量倍率',
     type: 'slider',
-    options: {
-      min: 0.5,
-      max: 3,
-      step: 0.1,
-    },
+    options: Options_05_30_01,
   },
   {
     name: 'CollectionObjectHpRate',
     label: '可采集物品生命值倍率',
     type: 'slider',
-    options: {
-      min: 0.5,
-      max: 3,
-      step: 0.1,
-    },
+    options: Options_05_30_01,
   },
   {
     name: 'CollectionObjectRespawnSpeedRate',
     label: '可采集物品刷新间隔',
     type: 'slider',
-    options: {
-      min: 0.5,
-      max: 3,
-      step: 0.1,
-    },
+    options: Options_05_30_01,
   },
   {
     name: 'EnemyDropItemRate',
     label: '道具掉落量倍率',
     type: 'slider',
-    options: {
-      min: 0.5,
-      max: 3,
-      step: 0.1,
-    },
+    options: Options_05_30_01,
   },
   {
     name: 'SupplyDropSpan',
@@ -309,10 +279,7 @@ export const DifficultyFormItems: FormItemProps[] = [
     name: 'bEnableInvaderEnemy',
     label: '是否会发生袭击事件？',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_Switch,
   },
   {
     name: 'DeathPenalty',
@@ -373,36 +340,38 @@ export const ServerFormItems = [
   {
     name: 'ServerName',
     label: '服务器名称',
-    type: 'input',
+    type: 'input.text',
+    options: {},
   },
   {
     name: 'ServerDescription',
     label: '服务器描述',
-    type: 'input',
+    type: 'input.text',
+    options: {},
   },
   {
     name: 'AdminPassword',
     label: '管理员密码',
-    type: 'password',
+    type: 'input.password',
+    options: {},
   },
   {
     name: 'ServerPassword',
     label: '服务器密码',
-    type: 'password',
+    type: 'input.password',
+    options: {},
   },
   {
     name: 'PublicIP',
     label: '服务器地址',
-    type: 'input',
+    type: 'input.text',
+    options: {},
   },
   {
     name: 'PublicPort',
     label: '服务器端口',
-    type: 'number',
-    options: {
-      min: 1024,
-      max: 65535,
-    },
+    type: 'input.number',
+    options: Options_Port,
   },
   {
     name: 'ServerPlayerMaxNum',
@@ -418,10 +387,7 @@ export const ServerFormItems = [
     name: 'bIsUseBackupSaveData',
     label: '是否开启自动备份',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'AutoSaveSpan',
@@ -488,67 +454,49 @@ export const ServerFormItems = [
     name: 'RCONEnabled',
     label: '是否启用 RCON',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'RCONPort',
     label: 'RCON 端口',
-    type: 'number',
-    options: {
-      min: 1024,
-      max: 65535,
-      step: 1,
-    },
+    type: 'input.number',
+    options: Options_Port,
   },
   {
     name: 'Region',
     label: '服务器区域',
-    type: 'input',
+    type: 'input.text',
+    options: {},
   },
   {
     name: 'bUseAuth',
     label: '是否启用正版认证',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'BanListURL',
     label: '黑名单',
-    type: 'input',
+    type: 'input.text',
+    options: {},
   },
   {
     name: 'RESTAPIEnabled',
     label: '是否启用 REST API',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'RESTAPIPort',
     label: 'REST API 端口',
-    type: 'number',
-    options: {
-      min: 1024,
-      max: 65535,
-      step: 1,
-    },
+    type: 'input.number',
+    options: Options_Port,
   },
   {
     name: 'bShowPlayerList',
     label: '是否显示玩家列表',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'ChatPostLimitPerMinute',
@@ -567,46 +515,31 @@ export const OtherFormItems = [
     name: 'bEnablePlayerToPlayerDamage',
     label: '允许玩家相互攻击',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bEnableFriendlyFire',
     label: '允许友军伤害',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bActiveUNKO',
     label: '允许生成大便',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bEnableAimAssistPad',
     label: '启用辅助瞄准（手柄）',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bEnableAimAssistKeyboard',
     label: '启用辅助瞄准（键鼠）',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'DropItemMaxNum_UNKO',
@@ -642,10 +575,7 @@ export const OtherFormItems = [
     name: 'bAutoResetGuildNoOnlinePlayers',
     label: '自动解散不活跃公会',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'AutoResetGuildTimeNoOnlinePlayers',
@@ -671,82 +601,55 @@ export const OtherFormItems = [
     name: 'bIsMultiplay',
     label: '是否为多人游戏模式',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bIsPvP',
     label: '是否允许PVP',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bCanPickupOtherGuildDeathPenaltyDrop',
     label: '是否允许拾取其他公会玩家死亡惩罚掉落物',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bEnableNonLoginPenalty',
     label: '是否开启未登录惩罚',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bEnableFastTravel',
     label: '是否开启快速旅行',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bIsStartLocationSelectByMap',
     label: '是否允许选择出生点',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bExistPlayerAfterLogout',
     label: '玩家登出后角色是否留在原地',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bEnableDefenseOtherGuildPlayer',
     label: '是否允许攻击其他公会玩家',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'bInvisibleOtherGuildBaseCampAreaFX',
     label: '是否隐藏其他公会的营地范围',
     type: 'switch',
-    options: {
-      off: '否',
-      on: '是',
-    },
+    options: Options_NoYes,
   },
   {
     name: 'CoopPlayerMaxNum',
