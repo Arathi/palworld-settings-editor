@@ -1,0 +1,32 @@
+.pwc-background {
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+  img[alt="background"] {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+}
+
+.pwc-mask {
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.5) 50%
+  );
+
+  background-size: 100% 4px;
+}

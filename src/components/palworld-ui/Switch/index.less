@@ -1,0 +1,50 @@
+@import "../index.less";
+
+.pwc-switch {
+  .pwc-commons();
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-left: 48px;
+
+  &-button {
+    appearance: none;
+    -webkit-appearance: none;
+    border: unset;
+    background: unset;
+
+    flex: 1;
+    height: 32px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: white;
+
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+
+    &.active {
+      background-color: rgba(0, 0, 255, 0.5);
+      border-bottom-color: blue;
+    }
+
+    &.inactive {
+      color: gray;
+      border-bottom-color: gray;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+}

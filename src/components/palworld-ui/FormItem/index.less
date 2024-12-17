@@ -1,0 +1,34 @@
+.pwc-form-item {
+  --pwc-form-item-row-height: 36px;
+  --pwc-form-item-margin-left: 0px;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 4px 32px;
+  width: 100%;
+  margin: 
+    0px 
+    0px 
+    4px 
+    var(--pwc-form-item-margin-left);
+
+  .ant-form-item-row {
+    height: var(--pwc-form-item-row-height);
+
+    .ant-form-item-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      label {
+        color: white;
+        user-select: none;
+      }
+    }
+
+    .ant-form-item-control {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

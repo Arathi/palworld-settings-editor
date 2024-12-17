@@ -1,0 +1,28 @@
+{
+  "name": "palworld-settings-editor",
+  "private": true,
+  "version": "0.24.1217",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.5.2",
+    "antd": "^5.22.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "valtio": "^2.1.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@rsbuild/core": "^1.1.8",
+    "@rsbuild/plugin-less": "^1.1.0",
+    "@rsbuild/plugin-react": "^1.0.7",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "less": "^4.2.1",
+    "typescript": "^5.7.2"
+  }
+}

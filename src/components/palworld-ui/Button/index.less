@@ -1,0 +1,91 @@
+@import "../index.less";
+
+.pwc-button {
+  .pwc-commons();
+
+  --pwc-button-width: 280px;
+  --pwc-button-height: 40px;
+  --pwc-button-text-color: var(--pwc-color-primary);
+  --pwc-button-background-color: var(--pwc-color-inactive);
+  --pwc-button-vertex-size: 2px;
+  --pwc-button-vertex-color: white;
+  --pwc-button-border-width: 1px;
+  --pwc-button-border-color: #A0A0A0;
+
+  position: relative;
+  width: calc(
+    var(--pwc-button-width) +
+    2 * var(--pwc-button-vertex-size)
+  );
+  height: calc(
+    var(--pwc-button-height) +
+    2 * var(--pwc-button-vertex-size)
+  );
+
+  &:hover {
+    --pwc-button-background-color: var(--pwc-color-inactive-hover);
+  }
+
+  &-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(
+      var(--pwc-button-width) +
+      2 * var(--pwc-button-vertex-size) -
+      2 * var(--pwc-button-border-width)
+    );
+    height: calc(
+      var(--pwc-button-height) +
+      2 * var(--pwc-button-vertex-size) -
+      2 * var(--pwc-button-border-width)
+    );
+    background-color: var(--pwc-button-background-color);
+    border-style: solid;
+    border-width: var(--pwc-button-border-width);
+    border-color: var(--pwc-button-border-color);
+  }
+
+  &-vertex {
+    position: absolute;
+    width: var(--pwc-button-vertex-size);
+    height: var(--pwc-button-vertex-size);
+    background-color: var(--pwc-button-vertex-color);
+
+    &.top {
+      top: 0;
+    }
+    &.right {
+      right: 0;
+    }
+    &.bottom {
+      bottom: 0;
+    }
+    &.left {
+      left: 0;
+    }
+  }
+
+  &-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(
+      var(--pwc-button-width) +
+      2 * var(--pwc-button-vertex-size)
+    );
+    height: calc(
+      var(--pwc-button-height) +
+      2 * var(--pwc-button-vertex-size)
+    );
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--pwc-button-text-color);
+    cursor: pointer;
+    font-size: 1.25em;
+    user-select: none;
+  }
+}

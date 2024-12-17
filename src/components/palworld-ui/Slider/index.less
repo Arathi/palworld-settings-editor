@@ -1,0 +1,61 @@
+@import "../index.less";
+
+.pwc-slider {
+  .pwc-commons();
+
+  --pwc-slider-value-width: 48px;
+  --pwc-slider-value-color: var(--pwc-color-primary);
+
+  --pwc-slider-track-height: 4px;
+  --pwc-slider-track-inactive-color: var(--pwc-color-inactive);
+  --pwc-slider-track-active-color: var(--pwc-color-primary);
+
+  --pwc-slider-thumb-size: 16px;
+  --pwc-slider-thumb-background-color: var(--pwc-color-inactive);
+  --pwc-slider-thumb-border-width: 4px;
+  --pwc-slider-thumb-border-color: var(--pwc-color-primary);
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+
+  &:hover {
+    --pwc-slider-track-active-color: var(--pwc-color-active-hover);
+    --pwc-slider-thumb-border-color: var(--pwc-color-active-hover);
+  }
+
+  &-value {
+    width: var(--pwc-slider-value-width);
+    color: var(--pwc-slider-value-color);
+    user-select: none;
+  }
+
+  &-range {
+    appearance: none;
+    -webkit-appearance: none;
+
+    height: var(--pwc-slider-track-height);
+    background-color: var(--pwc-slider-track-inactive-color);
+    background-image: linear-gradient(
+      to bottom,
+      var(--pwc-slider-track-active-color),
+      var(--pwc-slider-track-active-color)
+    );
+    background-size: 0%;
+    background-repeat: no-repeat;
+
+    &::-webkit-slider-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+
+      width: var(--pwc-slider-thumb-size);
+      height: var(--pwc-slider-thumb-size);
+      background-color: var(--pwc-slider-thumb-background-color);
+      border-style: solid;
+      border-width: var(--pwc-slider-thumb-border-width);
+      border-color: var(--pwc-slider-thumb-border-color);
+      transform: rotate(45deg);
+    }
+  }
+}
